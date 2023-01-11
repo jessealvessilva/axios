@@ -11,7 +11,7 @@ const get = () => {
 			}
 	};
 
-	axios.get('https://jsonplaceholder.typicode.com/posts',config)
+	axios.get('https://jsonplaceholder.typicode.com/posts',config) 
 	.then((response)=>renderOutput(response) )
 	
     console.log('Legall...');
@@ -25,7 +25,7 @@ const post = () => {
         userId: 1,
     };
 
-    axios.post('https://jsonplaceholder.typicode.com/posts',data )
+    axios.post('https://jsonplaceholder.typicode.com/posts',data ) 
 	.then((response)=>renderOutput(response) )
 
     console.log('Executou o POST'); 
