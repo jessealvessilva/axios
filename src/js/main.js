@@ -16,7 +16,7 @@ const get = () => {
 	
     console.log('Legall...');
 }
-
+// Comantário
 const post = () => {
 
     const data = {
@@ -25,7 +25,7 @@ const post = () => {
         userId: 1,
     };
 
-    axios.post('https://jsonplaceholder.typicode.com/posts',data ) 
+    axios.post('https://jsonplaceholder.typicode.com/posts',data )  
 	.then((response)=>renderOutput(response) )
 
     console.log('Executou o POST'); 
