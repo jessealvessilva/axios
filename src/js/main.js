@@ -5,24 +5,24 @@ const configEl  = document.getElementById('config');
 
 var valor1 = 0;
 
-setInterval(()=>{  
+// setInterval(()=>{  
 
-        const now       = new Date;
-        console.log("Imprimiu valor diferente de 1 " ); 
+//         const now       = new Date;
+//         console.log("Imprimiu valor diferente de 1 " ); 
         
-        if ( valor1 != 5 ) {  
+//         if ( valor1 != 5 ) {  
 
-            console.log("Valor atual:  " + valor1 );  
+//             console.log("Valor atual:  " + valor1 );  
 
-        } else {
+//         } else {
         
-            console.log("Imprimiu valor diferente de 1 " ); 
-            get()     
+//             console.log("Imprimiu valor diferente de 1 " ); 
+//             transform()     
              
-        }
-        valor1++   
+//         }
+//         valor1++   
 
-}, 1000);
+// }, 1000);
 
 const get = () => {
 	
@@ -82,11 +82,20 @@ const transform = () => {
             transformResponse: [function (data) {
                 
                 const payload = JSON.parse(data).map( o => {
+                    let novonome = '';
+                    var Id       = o['id'];
+
+                    if ( Id  == 1) {
+                        novonome = "Teste"  
+                    }else {
+
+                    } 
                     return {
                         ...o,
                         is_selected: false, 
                         filial : o.title,
-                        pedido: o.title
+                        pedido: o.title, 
+                        nome: novonome
                         // title: o.title
                     }
                 });
@@ -101,6 +110,13 @@ const transform = () => {
 }
 
 const errorHandling = () => {
+
+    axios.get('https://jsonplaceholder.typicode.com/postsz',config) 
+	.then((response)=>renderOutput(response) )
+    .catch(function (error) {
+        renderOutput(error.response); 
+        console.log(error.response);
+    });
     console.log('errorHandling');
 }
 
