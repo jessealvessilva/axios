@@ -10,17 +10,17 @@ setInterval(()=>{
         const now       = new Date;
         console.log("Imprimiu valor diferente de 1 " ); 
         
-        if ( valor1 != 5 ) {  
+        // if ( valor1 != 5 ) {  
 
-            console.log("Valor atual:  " + valor1 );  
+        //     console.log("Imprimiu valor1 " );  
 
-        } else {
+        // } else {
         
-            console.log("Imprimiu valor diferente de 1 " ); 
-            get()     
-             
-        }
-        valor1++   
+        //     console.log("Imprimiu valor diferente de 1 " ); 
+        //     get()     
+              
+        // }
+    
 
 }, 1000);
 
@@ -38,83 +38,11 @@ const get = () => {
 	};
 
 	axios.get('https://jsonplaceholder.typicode.com/posts',config) 
-	.then((response)=>renderOutput(response) )
+	.then( (response)=> renderOutput(response) )
 	
     console.log('Legall...');
 }
-// Comantário
-const post = () => {
 
-    const data = {
-        title: 'foo',
-        body: 'bar',
-        userId: 1,
-    };
-
-    axios.post('https://jsonplaceholder.typicode.com/posts',data )  
-	.then((response)=>renderOutput(response) )
-
-    console.log('Executou o POST'); 
-}
-
-const put = () => {
-    console.log('put');
-}
-
-const patch = () => {
-    console.log('patch');
-}
-
-const del = () => {
-    console.log('delete');
-}
-
-const multiple = () => {
-    console.log('multiple');
-}
-
-const transform = () => {
-
-    const config = { 
-			params: {
-				_limit: 5 
-			},
-            transformResponse: [function (data) {
-                
-                const payload = JSON.parse(data).map( o => {
-                    return {
-                        ...o,
-                        is_selected: false, 
-                        filial : o.title,
-                        pedido: o.title
-                        // title: o.title
-                    }
-                });
-            
-                return payload; 
-              }],
-	};
-    console.log('transform');
-
-    axios.get('https://jsonplaceholder.typicode.com/posts',config) 
-	.then((response)=>renderOutput(response) )
-}
-
-const errorHandling = () => {
-    console.log('errorHandling');
-}
-
-const cancel = () => {
-    console.log('cancel');
-}
-
-const clear = () => {
-    statusEl.innerHTML = '';
-    statusEl.className = '';
-    dataEl.innerHTML = '';
-    headersEl.innerHTML = '';
-    configEl.innerHTML = '';
-}
 
 const renderOutput = (response) => {
     // Status
